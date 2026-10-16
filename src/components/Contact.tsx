@@ -60,7 +60,7 @@ export const Contact: React.FC = () => {
 
         <div className="max-w-3xl mx-auto">
           {submitted && (
-            <div className="mb-6 p-4 rounded-xl bg-teal-50 border border-[#0BCEAF] text-[#078571] text-center font-medium shadow-sm transition-all">
+            <div className="mb-6 p-4 rounded-xl bg-teal-50 border border-primary text-primary-hover text-center font-medium shadow-sm transition-all">
               <i className="fa fa-check-circle mr-2 text-lg"></i>
               Thank you! Your message has been sent successfully.
             </div>
@@ -78,7 +78,7 @@ export const Contact: React.FC = () => {
                   onChange={handleChange}
                   className={`w-full px-6 py-4 rounded-[25px] border ${
                     errors.name ? 'border-red-500' : 'border-gray-200'
-                  } focus:outline-none focus:border-[#0BCEAF] text-gray-700 bg-white shadow-sm transition-all placeholder:text-gray-400`}
+                  } focus:outline-none focus:border-primary text-gray-700 bg-white shadow-sm transition-all placeholder:text-gray-400`}
                 />
                 {errors.name && (
                   <p className="text-red-500 text-xs mt-1.5 ml-4 font-medium">{errors.name}</p>
@@ -94,7 +94,7 @@ export const Contact: React.FC = () => {
                   onChange={handleChange}
                   className={`w-full px-6 py-4 rounded-[25px] border ${
                     errors.email ? 'border-red-500' : 'border-gray-200'
-                  } focus:outline-none focus:border-[#0BCEAF] text-gray-700 bg-white shadow-sm transition-all placeholder:text-gray-400`}
+                  } focus:outline-none focus:border-primary text-gray-700 bg-white shadow-sm transition-all placeholder:text-gray-400`}
                 />
                 {errors.email && (
                   <p className="text-red-500 text-xs mt-1.5 ml-4 font-medium">{errors.email}</p>
@@ -112,7 +112,7 @@ export const Contact: React.FC = () => {
                 onChange={handleChange}
                 className={`w-full px-6 py-4 rounded-[25px] border ${
                   errors.subject ? 'border-red-500' : 'border-gray-200'
-                } focus:outline-none focus:border-[#0BCEAF] text-gray-700 bg-white shadow-sm transition-all placeholder:text-gray-400`}
+                } focus:outline-none focus:border-primary text-gray-700 bg-white shadow-sm transition-all placeholder:text-gray-400`}
               />
               {errors.subject && (
                 <p className="text-red-500 text-xs mt-1.5 ml-4 font-medium">{errors.subject}</p>
@@ -129,7 +129,7 @@ export const Contact: React.FC = () => {
                 onChange={handleChange}
                 className={`w-full px-6 py-4 rounded-[25px] border ${
                   errors.message ? 'border-red-500' : 'border-gray-200'
-                } focus:outline-none focus:border-[#0BCEAF] text-gray-700 bg-white shadow-sm transition-all placeholder:text-gray-400 resize-none`}
+                } focus:outline-none focus:border-primary text-gray-700 bg-white shadow-sm transition-all placeholder:text-gray-400 resize-none`}
               ></textarea>
               {errors.message && (
                 <p className="text-red-500 text-xs mt-1.5 ml-4 font-medium">{errors.message}</p>
@@ -140,7 +140,7 @@ export const Contact: React.FC = () => {
             <div className="pt-2">
               <button
                 type="submit"
-                className="inline-block border border-[#0BCEAF] text-[#0BCEAF] hover:bg-[#0BCEAF] hover:text-white px-8 py-3 rounded-sm font-semibold transition-all duration-300 text-base shadow-sm"
+                className="inline-block border border-primary text-primary hover:bg-primary hover:text-white px-8 py-3 rounded-sm font-semibold transition-all duration-300 text-base shadow-sm"
               >
                 Send Message
               </button>

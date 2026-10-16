@@ -8,12 +8,8 @@ interface NavItem {
 const navItems: NavItem[] = [
   { name: 'Home', href: '#home' },
   { name: 'About', href: '#about' },
-  { name: 'Quality', href: '#qualification' },
   { name: 'Skill', href: '#skill' },
-  { name: 'Service', href: '#service' },
   { name: 'Portfolio', href: '#portfolio' },
-  { name: 'Review', href: '#testimonial' },
-  { name: 'Blog', href: '#blog' },
   { name: 'Contact', href: '#contact' },
 ];
 
@@ -73,7 +69,7 @@ export const Navbar: React.FC = () => {
             onClick={(e) => handleNavClick(e, '#home')}
             className="text-3xl lg:text-4xl font-extrabold text-dark tracking-tight"
           >
-            <span className="text-primary">Free</span>Folio
+            <span className="text-primary">M M </span>Sabit
           </a>
 
           {/* Desktop Nav Items */}
@@ -101,10 +97,10 @@ export const Navbar: React.FC = () => {
           <div className="hidden lg:block">
             <a
               href="#contact"
-              onClick={(e) => handleNavClick(e, '#contact')}
+
               className="inline-block border border-primary text-primary hover:bg-primary hover:text-white px-5 py-2 rounded-sm text-sm font-medium transition-all duration-300"
             >
-              Hire Me
+              Download CV
             </a>
           </div>
 
@@ -145,10 +141,9 @@ export const Navbar: React.FC = () => {
           <div className="pt-2">
             <a
               href="#contact"
-              onClick={(e) => handleNavClick(e, '#contact')}
               className="block text-center border border-primary text-primary hover:bg-primary hover:text-white px-4 py-2 rounded-sm text-sm font-medium transition-all"
             >
-              Hire Me
+              Download CV
             </a>
           </div>
         </div>

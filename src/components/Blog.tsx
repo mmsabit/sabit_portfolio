@@ -51,7 +51,7 @@ export const Blog: React.FC = () => {
                 />
 
                 {/* Centered circular date badge */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60px] h-[60px] rounded-full bg-[#0BCEAF] text-white flex flex-col items-center justify-center shadow-md">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-15 h-15 rounded-full bg-primary text-white flex flex-col items-center justify-center shadow-md">
                   <span className="font-bold text-lg leading-tight">{post.day}</span>
                   <span className="text-[11px] uppercase tracking-wider font-semibold">
                     {post.month}
@@ -60,14 +60,14 @@ export const Blog: React.FC = () => {
               </div>
 
               {/* Title */}
-              <h5 className="font-medium text-lg text-[#343a40] mb-4 group-hover:text-[#0BCEAF] transition-colors leading-snug">
+              <h5 className="font-medium text-lg text-dark mb-4 group-hover:text-primary transition-colors leading-snug">
                 {post.title}
               </h5>
 
               {/* Read More Button */}
               <a
                 href="#blog"
-                className="inline-block border border-[#0BCEAF] text-[#0BCEAF] hover:bg-[#0BCEAF] hover:text-white px-5 py-2 text-sm font-semibold rounded-sm transition-all duration-300"
+                className="inline-block border border-primary text-primary hover:bg-primary hover:text-white px-5 py-2 text-sm font-semibold rounded-sm transition-all duration-300"
               >
                 Read More
               </a>

@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #0BCEAF;
+  --color-primary: #2563EB;
   --color-primary-hover: #078571;
   --color-secondary: #6c757d;
   --color-dark: #343a40;
@@ -88,7 +88,7 @@ body {
   width: 0;
   height: 0;
   left: -1px;
-  border-left: 16px solid #0BCEAF;
+  border-left: 16px solid #2563EB;
   border-top: 11px solid transparent;
   border-bottom: 11px solid transparent;
 }

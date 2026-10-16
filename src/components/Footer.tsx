@@ -9,7 +9,7 @@ export const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="bg-[#0BCEAF] text-white pt-16 pb-12 px-4 sm:px-6 lg:px-8 mt-12">
+    <footer className="bg-primary text-white pt-16 pb-12 px-4 sm:px-6 lg:px-8 mt-12">
       <div className="max-w-7xl mx-auto text-center">
         {/* Social Icons */}
         <div className="flex justify-center items-center space-x-3 mb-6">
@@ -17,7 +17,7 @@ export const Footer: React.FC = () => {
             <a
               key={index}
               href={social.href}
-              className="w-11 h-11 rounded-full bg-white text-[#343a40] hover:text-[#0BCEAF] hover:shadow-lg flex items-center justify-center transition-all duration-300 transform hover:-translate-y-1"
+              className="w-11 h-11 rounded-full bg-white text-dark hover:text-primary hover:shadow-lg flex items-center justify-center transition-all duration-300 transform hover:-translate-y-1"
             >
               <i className={social.icon}></i>
             </a>

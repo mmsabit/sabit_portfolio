@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 
-interface HeroProps {
-  onOpenVideo: () => void;
-}
+
 
 const words = [
   'Web Designer',
@@ -13,7 +11,7 @@ const words = [
   'MEARN Stack Developer',
 ];
 
-export const Hero: React.FC<HeroProps> = () => {
+export const Hero = () => {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [currentText, setCurrentText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);

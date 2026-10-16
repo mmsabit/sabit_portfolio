@@ -46,7 +46,7 @@ export const VideoModal: React.FC<VideoModalProps> = ({
         <button
           type="button"
           onClick={onClose}
-          className="absolute -top-9 right-0 w-8 h-8 bg-black text-white hover:text-[#0BCEAF] flex items-center justify-center text-2xl font-light leading-none z-50 cursor-pointer"
+          className="absolute -top-9 right-0 w-8 h-8 bg-black text-white hover:text-primary flex items-center justify-center text-2xl font-light leading-none z-50 cursor-pointer"
           aria-label="Close"
         >
           &times;

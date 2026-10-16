@@ -65,14 +65,14 @@ export const Qualification: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Education Column */}
           <div>
-            <h3 className="text-2xl font-bold text-[#343a40] mb-8">My Education</h3>
-            <div className="border-l-2 border-[#0BCEAF] pl-8 ml-3 space-y-8">
+            <h3 className="text-2xl font-bold text-dark mb-8">My Education</h3>
+            <div className="border-l-2 border-primary pl-8 ml-3 space-y-8">
               {educationList.map((item, index) => (
                 <div key={index} className="relative group">
-                  <div className="absolute -left-[41px] top-1 w-4 h-4 rounded-full bg-white flex items-center justify-center">
-                    <i className="far fa-dot-circle text-[#0BCEAF] text-base"></i>
+                  <div className="absolute -left-10.25 top-1 w-4 h-4 rounded-full bg-white flex items-center justify-center">
+                    <i className="far fa-dot-circle text-primary text-base"></i>
                   </div>
-                  <h4 className="font-bold text-lg text-[#343a40] mb-1">{item.title}</h4>
+                  <h4 className="font-bold text-lg text-dark mb-1">{item.title}</h4>
                   <p className="text-sm text-gray-600 mb-2 font-medium">
                     <strong className="text-gray-800">{item.institution}</strong> |{' '}
                     <span className="text-gray-500">{item.period}</span>
@@ -85,14 +85,14 @@ export const Qualification: React.FC = () => {
 
           {/* Experience Column */}
           <div>
-            <h3 className="text-2xl font-bold text-[#343a40] mb-8">My Expericence</h3>
-            <div className="border-l-2 border-[#0BCEAF] pl-8 ml-3 space-y-8">
+            <h3 className="text-2xl font-bold text-dark mb-8">My Expericence</h3>
+            <div className="border-l-2 border-primary pl-8 ml-3 space-y-8">
               {experienceList.map((item, index) => (
                 <div key={index} className="relative group">
-                  <div className="absolute -left-[41px] top-1 w-4 h-4 rounded-full bg-white flex items-center justify-center">
-                    <i className="far fa-dot-circle text-[#0BCEAF] text-base"></i>
+                  <div className="absolute -left-10.25 top-1 w-4 h-4 rounded-full bg-white flex items-center justify-center">
+                    <i className="far fa-dot-circle text-primary text-base"></i>
                   </div>
-                  <h4 className="font-bold text-lg text-[#343a40] mb-1">{item.title}</h4>
+                  <h4 className="font-bold text-lg text-dark mb-1">{item.title}</h4>
                   <p className="text-sm text-gray-600 mb-2 font-medium">
                     <strong className="text-gray-800">{item.institution}</strong> |{' '}
                     <span className="text-gray-500">{item.period}</span>

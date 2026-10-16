@@ -2,16 +2,16 @@ import React from 'react';
 import { SectionHeader } from './SectionHeader';
 
 export const About: React.FC = () => {
-  const details = [
-    { label: 'Name', value: 'Kate Winslet' },
-    { label: 'Birthday', value: '1 April 1990' },
-    { label: 'Degree', value: 'Master' },
-    { label: 'Experience', value: '10 Years' },
-    { label: 'Phone', value: '+012 345 6789' },
-    { label: 'Email', value: 'info@example.com' },
-    { label: 'Address', value: '123 Street, New York, USA' },
-    { label: 'Freelance', value: 'Available' },
-  ];
+  // const details = [
+  //   { label: 'Name', value: 'Kate Winslet' },
+  //   { label: 'Birthday', value: '1 April 1990' },
+  //   { label: 'Degree', value: 'Master' },
+  //   { label: 'Experience', value: '10 Years' },
+  //   { label: 'Phone', value: '+012 345 6789' },
+  //   { label: 'Email', value: 'info@example.com' },
+  //   { label: 'Address', value: '123 Street, New York, USA' },
+  //   { label: 'Freelance', value: 'Available' },
+  // ];
 
   return (
     <section id="about" className="py-20 bg-white">
@@ -32,38 +32,38 @@ export const About: React.FC = () => {
 
           {/* Bio Details */}
           <div className="w-full lg:w-7/12 text-left">
-            <h3 className="text-2xl sm:text-3xl font-bold text-[#343a40] mb-4">
-              UI/UX Designer & Web Developer
+            <h3 className="text-2xl sm:text-3xl font-bold text-dark mb-4">
+              Full-Stack Web Developer
             </h3>
             <p className="text-gray-500 leading-relaxed mb-6">
-              Tempor eos dolore amet tempor dolor tempor. Dolore ea magna sit amet dolor eirmod. Eos ipsum est tempor dolor. Clita lorem kasd sed ea lorem diam ea lorem eirmod duo sit ipsum. Amet dolor stet lorem diam dolor justo et dolor dolor dolor
+              I am a dedicated Junior Full-Stack Developer and Computer Science undergraduate with a strong academic foundation in software engineering. Driven by a passion for building clean, high-performing, and user-centric digital experiences, I specialize in modern web technologies including JavaScript, TypeScript, React.js, Next.js, and Tailwind CSS on the frontend, alongside Node.js, MySQL, and MongoDB for backend development and database management. I bring hands-on experience in developing responsive web applications, managing seamless platform migrations, and optimizing web performance.
             </p>
 
             {/* Info Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-6 mb-8">
+            {/* <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-6 mb-8">
               {details.map((item) => (
                 <div key={item.label} className="text-base">
-                  <span className="font-bold text-[#343a40]">{item.label}: </span>
+                  <span className="font-bold text-dark">{item.label}: </span>
                   <span className="text-gray-500">{item.value}</span>
                 </div>
               ))}
-            </div>
+            </div> */}
 
             {/* Buttons */}
-            <div className="flex flex-wrap gap-4">
+            {/* <div className="flex flex-wrap gap-4">
               <a
                 href="#contact"
-                className="border border-[#0BCEAF] text-[#0BCEAF] hover:bg-[#0BCEAF] hover:text-white px-7 py-2.5 rounded-sm font-medium transition-all duration-300"
+                className="border border-primary text-primary hover:bg-primary hover:text-white px-7 py-2.5 rounded-sm font-medium transition-all duration-300"
               >
                 Hire Me
               </a>
               <a
                 href="#qualification"
-                className="border border-[#0BCEAF] text-[#0BCEAF] hover:bg-[#0BCEAF] hover:text-white px-7 py-2.5 rounded-sm font-medium transition-all duration-300"
+                className="border border-primary text-primary hover:bg-primary hover:text-white px-7 py-2.5 rounded-sm font-medium transition-all duration-300"
               >
                 Learn More
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

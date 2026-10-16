@@ -50,17 +50,17 @@ export const Services: React.FC = () => {
           {servicesList.map((service, index) => (
             <div key={index} className="text-center group flex flex-col items-center">
               <div className="flex items-center justify-center mb-4 space-x-3">
-                <div className="w-[60px] h-[60px] rounded-full bg-[#0BCEAF] text-white flex items-center justify-center text-2xl shadow-sm transition-transform duration-300 group-hover:scale-110">
+                <div className="w-15 h-15 rounded-full bg-primary text-white flex items-center justify-center text-2xl shadow-sm transition-transform duration-300 group-hover:scale-110">
                   <i className={service.icon}></i>
                 </div>
-                <h4 className="text-xl font-bold text-[#343a40] text-left">{service.title}</h4>
+                <h4 className="text-xl font-bold text-dark text-left">{service.title}</h4>
               </div>
               <p className="text-gray-500 text-sm leading-relaxed mb-4 max-w-sm">
                 {service.desc}
               </p>
               <a
                 href="#contact"
-                className="inline-block border-b-2 border-[#0BCEAF] text-[#0BCEAF] hover:text-[#078571] hover:border-[#078571] pb-0.5 text-sm font-semibold transition-colors"
+                className="inline-block border-b-2 border-primary text-primary hover:text-primary-hover hover:border-primary-hover pb-0.5 text-sm font-semibold transition-colors"
               >
                 Read More
               </a>

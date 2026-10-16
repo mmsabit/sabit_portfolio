@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { SectionHeader } from './SectionHeader';
 
-interface PortfolioProps {
-  onOpenLightbox: (src: string) => void;
-}
+
 
 interface PortfolioItem {
   id: number;
@@ -28,7 +26,7 @@ const filters = [
   { label: 'Marketing', value: 'third' },
 ];
 
-export const Portfolio: React.FC<PortfolioProps> = ({ onOpenLightbox }) => {
+export const Portfolio = () => {
   const [activeFilter, setActiveFilter] = useState('all');
 
   const filteredItems =
@@ -52,8 +50,8 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onOpenLightbox }) => {
                 type="button"
                 className={`px-4 py-1.5 rounded-sm text-sm font-semibold transition-all duration-300 ${
                   isActive
-                    ? 'bg-[#0BCEAF] text-white border border-[#0BCEAF]'
-                    : 'border border-[#0BCEAF] text-[#0BCEAF] hover:bg-[#0BCEAF] hover:text-white bg-transparent'
+                    ? 'bg-primary text-white border border-primary'
+                    : 'border border-primary text-primary hover:bg-primary hover:text-white bg-transparent'
                 }`}
               >
                 {filter.label}
@@ -68,7 +66,6 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onOpenLightbox }) => {
             <div
               key={item.id}
               className="group relative rounded overflow-hidden shadow-sm bg-gray-100 aspect-4/3 cursor-pointer"
-              onClick={() => onOpenLightbox(item.img)}
             >
               <img
                 src={item.img}
@@ -78,7 +75,7 @@ export const Portfolio: React.FC<PortfolioProps> = ({ onOpenLightbox }) => {
 
               {/* Expanding primary overlay on hover */}
               <div
-                className="absolute inset-0 bg-[#0BCEAF]/90 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-all duration-500 rounded"
+                className="absolute inset-0 bg-primary/90 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-all duration-500 rounded"
                 style={{
                   margin: 'auto',
                 }}

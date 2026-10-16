@@ -55,7 +55,7 @@ export const ScrollControls: React.FC = () => {
           onClick={scrollToTop}
           type="button"
           aria-label="Back to top"
-          className="fixed bottom-8 right-8 z-30 w-10 h-10 border border-[#343a40] text-[#343a40] hover:bg-[#343a40] hover:text-white rounded flex items-center justify-center animate-action transition-all duration-300 bg-white/80 shadow-md backdrop-blur-xs"
+          className="fixed bottom-8 right-8 z-30 w-10 h-10 border border-dark text-dark hover:bg-dark hover:text-white rounded flex items-center justify-center animate-action transition-all duration-300 bg-white/80 shadow-md backdrop-blur-xs"
         >
           <i className="fa fa-angle-double-up text-lg"></i>
         </button>

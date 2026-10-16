@@ -54,8 +54,8 @@ export const Testimonials: React.FC = () => {
         <SectionHeader bgTitle="Review" frontTitle="Clients Say" />
 
         <div className="max-w-3xl mx-auto text-center px-4">
-          <div className="min-h-[320px] flex flex-col items-center justify-center transition-opacity duration-500">
-            <i className="fa fa-3x fa-quote-left text-[#0BCEAF] mb-6"></i>
+          <div className="min-h-80 flex flex-col items-center justify-center transition-opacity duration-500">
+            <i className="fa fa-3x fa-quote-left text-primary mb-6"></i>
             <p className="text-xl sm:text-2xl font-light text-gray-600 leading-relaxed mb-6 italic">
               "{current.quote}"
             </p>
@@ -64,7 +64,7 @@ export const Testimonials: React.FC = () => {
               alt={current.name}
               className="w-20 h-20 rounded-full mx-auto mb-3 object-cover shadow-sm border-2 border-gray-100"
             />
-            <h5 className="font-bold text-lg text-[#343a40]">{current.name}</h5>
+            <h5 className="font-bold text-lg text-dark">{current.name}</h5>
             <span className="text-sm text-gray-500 font-medium">{current.profession}</span>
           </div>
 
@@ -77,7 +77,7 @@ export const Testimonials: React.FC = () => {
                 aria-label={`Go to testimonial ${index + 1}`}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
                   currentIndex === index
-                    ? 'bg-[#0BCEAF] w-4'
+                    ? 'bg-primary w-4'
                     : 'bg-[#dddddd] hover:bg-gray-400'
                 }`}
               ></button>
