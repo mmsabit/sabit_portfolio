@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { SectionHeader } from './SectionHeader';
+import React, { useEffect, useState } from "react";
+import { SectionHeader } from "./SectionHeader";
 
 interface SkillItem {
   id: number;
@@ -21,23 +21,16 @@ export const Skills: React.FC = () => {
     const fetchSkills = async () => {
       try {
         setLoading(true);
-        // Fetch from /data/skill.json (served from public/data/skill.json)
-        const res = await fetch('/data/skill.json');
+        const res = await fetch("/data/skill.json", { cache: "no-store" });
         if (!res.ok) {
-          // Fallback to explicit localhost URL if needed
-          const fallbackRes = await fetch('http://localhost:5173/data/skill.json');
-          if (!fallbackRes.ok) {
-            throw new Error(`Failed to load skill data (${res.status})`);
-          }
-          const data: SkillCategory[] = await fallbackRes.json();
-          setSkillsData(data);
-          return;
+          throw new Error(`Failed to load skill data (${res.status})`);
         }
+
         const data: SkillCategory[] = await res.json();
         setSkillsData(data);
       } catch (err) {
-        console.error('Error fetching skills:', err);
-        setError('Could not load skills data.');
+        console.error("Error fetching skills:", err);
+        setError("Could not load skills data.");
       } finally {
         setLoading(false);
       }
