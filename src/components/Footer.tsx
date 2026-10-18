@@ -1,11 +1,11 @@
 import React from 'react';
+import { FaFacebookF, FaGithub, FaLinkedinIn } from 'react-icons/fa';
 
 export const Footer: React.FC = () => {
   const socials = [
-    { icon: 'fab fa-twitter', href: '#' },
-    { icon: 'fab fa-facebook-f', href: '#' },
-    { icon: 'fab fa-linkedin-in', href: '#' },
-    { icon: 'fab fa-instagram', href: '#' },
+    { icon: <FaGithub size={20} />, href: 'https://github.com/mmsabit' },
+    { icon: <FaFacebookF size={20}/>, href: 'https://www.facebook.com/mmsabit2004' },
+    { icon: <FaLinkedinIn size={20} />, href: 'www.linkedin.com/in/mmsabit' },
   ];
 
   return (
@@ -19,7 +19,7 @@ export const Footer: React.FC = () => {
               href={social.href}
               className="w-11 h-11 rounded-full bg-white text-dark hover:text-primary hover:shadow-lg flex items-center justify-center transition-all duration-300 transform hover:-translate-y-1"
             >
-              <i className={social.icon}></i>
+              {social.icon}
             </a>
           ))}
         </div>
@@ -32,32 +32,14 @@ export const Footer: React.FC = () => {
           <span>|</span>
           <a href="#" className="hover:underline text-white">
             Terms
-          </a>
-          <span>|</span>
-          <a href="#" className="hover:underline text-white">
-            FAQs
-          </a>
-          <span>|</span>
-          <a href="#" className="hover:underline text-white">
-            Help
-          </a>
+          </a>          
         </div>
-
         {/* Copyright */}
         <p className="text-sm font-light text-white/95">
           &copy;{' '}
-          <a href="#" className="font-bold underline hover:text-white">
-            Domain Name
-          </a>
-          . All Rights Reserved. Designed by{' '}
-          <a
-            href="https://htmlcodex.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-bold underline hover:text-white"
-          >
-            HTML Codex
-          </a>
+          
+          . All Rights Reserved by M M Sabit
+          
         </p>
       </div>
     </footer>
