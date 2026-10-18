@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import { SectionHeader } from './SectionHeader';
 
 export const Contact: React.FC = () => {
@@ -10,7 +11,9 @@ export const Contact: React.FC = () => {
   });
 
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { id, value } = e.target;
@@ -22,10 +25,16 @@ export const Contact: React.FC = () => {
         return copy;
       });
     }
+    if (errorMessage) {
+      setErrorMessage(null);
+    }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setSuccessMessage(null);
+    setErrorMessage(null);
+
     const newErrors: Record<string, string> = {};
 
     if (!formData.name.trim()) {
@@ -48,9 +57,73 @@ export const Contact: React.FC = () => {
       return;
     }
 
-    setSubmitted(true);
-    setFormData({ name: '', email: '', subject: '', message: '' });
-    setTimeout(() => setSubmitted(false), 5000);
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const ownerTemplateId =
+      import.meta.env.VITE_EMAILJS_TEMPLATE_OWNER_ID ||
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const userTemplateId = import.meta.env.VITE_EMAILJS_TEMPLATE_USER_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !ownerTemplateId || !publicKey) {
+      setErrorMessage(
+        'Email service is not configured yet. Please set your EmailJS credentials in the .env file.'
+      );
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    const templateParams = {
+      name: formData.name,
+      email: formData.email,
+      subject: formData.subject,
+      message: formData.message,
+      // Common parameter variations to match your EmailJS templates:
+      user_name: formData.name,
+      user_email: formData.email,
+      from_name: formData.name,
+      from_email: formData.email,
+      reply_to: formData.email,
+      to_name: 'M M Sabit',
+      sent_at: new Date().toLocaleString(),
+    };
+
+    try {
+      // 1. Send email notification to you (portfolio owner)
+      const emailRequests = [
+        emailjs.send(serviceId, ownerTemplateId, templateParams, publicKey),
+      ];
+
+      // 2. Send confirmation copy to the user who filled the form
+      if (userTemplateId) {
+        emailRequests.push(
+          emailjs.send(serviceId, userTemplateId, templateParams, publicKey)
+        );
+      }
+
+      await Promise.all(emailRequests);
+
+      setSuccessMessage(
+        userTemplateId
+          ? 'Thank you! Your message has been sent successfully. A confirmation copy has also been emailed to you.'
+          : 'Thank you! Your message has been sent successfully.'
+      );
+      setFormData({ name: '', email: '', subject: '', message: '' });
+
+      setTimeout(() => {
+        setSuccessMessage(null);
+      }, 7000);
+    } catch (err: unknown) {
+      console.error('Email send failed:', err);
+      const errObj = err as { text?: string; message?: string };
+      setErrorMessage(
+        errObj?.text ||
+          errObj?.message ||
+          'Failed to send message. Please try again later or reach out directly.'
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -59,10 +132,19 @@ export const Contact: React.FC = () => {
         <SectionHeader bgTitle="Contact" frontTitle="Contact Me" />
 
         <div className="max-w-3xl mx-auto">
-          {submitted && (
-            <div className="mb-6 p-4 rounded-xl bg-teal-50 border border-primary text-primary-hover text-center font-medium shadow-sm transition-all">
-              <i className="fa fa-check-circle mr-2 text-lg"></i>
-              Thank you! Your message has been sent successfully.
+          {/* Success Message Alert */}
+          {successMessage && (
+            <div className="mb-6 p-4 rounded-xl bg-teal-50 border border-primary text-primary-hover text-center font-medium shadow-sm transition-all flex items-center justify-center gap-2">
+              <i className="fa fa-check-circle text-lg"></i>
+              <span>{successMessage}</span>
+            </div>
+          )}
+
+          {/* Error Message Alert */}
+          {errorMessage && (
+            <div className="mb-6 p-4 rounded-xl bg-red-50 border border-red-300 text-red-600 text-center font-medium shadow-sm transition-all flex items-center justify-center gap-2">
+              <i className="fa fa-exclamation-circle text-lg"></i>
+              <span>{errorMessage}</span>
             </div>
           )}
 
@@ -76,9 +158,10 @@ export const Contact: React.FC = () => {
                   placeholder="Your Name"
                   value={formData.name}
                   onChange={handleChange}
+                  disabled={isSubmitting}
                   className={`w-full px-6 py-4 rounded-[25px] border ${
                     errors.name ? 'border-red-500' : 'border-gray-200'
-                  } focus:outline-none focus:border-primary text-gray-700 bg-white shadow-sm transition-all placeholder:text-gray-400`}
+                  } focus:outline-none focus:border-primary text-gray-700 bg-white shadow-sm transition-all placeholder:text-gray-400 disabled:opacity-60 disabled:cursor-not-allowed`}
                 />
                 {errors.name && (
                   <p className="text-red-500 text-xs mt-1.5 ml-4 font-medium">{errors.name}</p>
@@ -92,9 +175,10 @@ export const Contact: React.FC = () => {
                   placeholder="Your Email"
                   value={formData.email}
                   onChange={handleChange}
+                  disabled={isSubmitting}
                   className={`w-full px-6 py-4 rounded-[25px] border ${
                     errors.email ? 'border-red-500' : 'border-gray-200'
-                  } focus:outline-none focus:border-primary text-gray-700 bg-white shadow-sm transition-all placeholder:text-gray-400`}
+                  } focus:outline-none focus:border-primary text-gray-700 bg-white shadow-sm transition-all placeholder:text-gray-400 disabled:opacity-60 disabled:cursor-not-allowed`}
                 />
                 {errors.email && (
                   <p className="text-red-500 text-xs mt-1.5 ml-4 font-medium">{errors.email}</p>
@@ -110,9 +194,10 @@ export const Contact: React.FC = () => {
                 placeholder="Subject"
                 value={formData.subject}
                 onChange={handleChange}
+                disabled={isSubmitting}
                 className={`w-full px-6 py-4 rounded-[25px] border ${
                   errors.subject ? 'border-red-500' : 'border-gray-200'
-                } focus:outline-none focus:border-primary text-gray-700 bg-white shadow-sm transition-all placeholder:text-gray-400`}
+                } focus:outline-none focus:border-primary text-gray-700 bg-white shadow-sm transition-all placeholder:text-gray-400 disabled:opacity-60 disabled:cursor-not-allowed`}
               />
               {errors.subject && (
                 <p className="text-red-500 text-xs mt-1.5 ml-4 font-medium">{errors.subject}</p>
@@ -127,9 +212,10 @@ export const Contact: React.FC = () => {
                 placeholder="Message"
                 value={formData.message}
                 onChange={handleChange}
+                disabled={isSubmitting}
                 className={`w-full px-6 py-4 rounded-[25px] border ${
                   errors.message ? 'border-red-500' : 'border-gray-200'
-                } focus:outline-none focus:border-primary text-gray-700 bg-white shadow-sm transition-all placeholder:text-gray-400 resize-none`}
+                } focus:outline-none focus:border-primary text-gray-700 bg-white shadow-sm transition-all placeholder:text-gray-400 resize-none disabled:opacity-60 disabled:cursor-not-allowed`}
               ></textarea>
               {errors.message && (
                 <p className="text-red-500 text-xs mt-1.5 ml-4 font-medium">{errors.message}</p>
@@ -140,9 +226,36 @@ export const Contact: React.FC = () => {
             <div className="pt-2">
               <button
                 type="submit"
-                className="inline-block border border-primary text-primary hover:bg-primary hover:text-white px-8 py-3 rounded-sm font-semibold transition-all duration-300 text-base shadow-sm"
+                disabled={isSubmitting}
+                className="inline-flex items-center justify-center gap-2 border border-primary text-primary hover:bg-primary hover:text-white px-8 py-3 rounded-sm font-semibold transition-all duration-300 text-base shadow-sm disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                Send Message
+                {isSubmitting ? (
+                  <>
+                    <svg
+                      className="animate-spin h-5 w-5 text-current"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                      ></circle>
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                      ></path>
+                    </svg>
+                    <span>Sending...</span>
+                  </>
+                ) : (
+                  <span>Send Message</span>
+                )}
               </button>
             </div>
           </form>
