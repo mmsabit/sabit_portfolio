@@ -96,7 +96,7 @@ export const Navbar: React.FC = () => {
           {/* Hire Me CTA (Desktop) */}
           <div className="hidden lg:block">
             <a
-              href="#contact"
+              href="https://docs.google.com/document/d/1C3z7m0Y9EBgGvcIl1W5vcMdXs-nfDy-Cju7CGmotI08/export?format=pdf"
 
               className="inline-block border border-primary text-primary hover:bg-primary hover:text-white px-5 py-2 rounded-sm text-sm font-medium transition-all duration-300"
             >

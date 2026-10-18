@@ -40,20 +40,20 @@ export const Skills: React.FC = () => {
   }, []);
 
   return (
-    <section id="skill" className="py-20 bg-white">
+    <section id="skill" className="py-16 sm:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader bgTitle="Skills" frontTitle="My Skills" />
 
         {/* Loading State Skeleton */}
         {loading && (
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4 md:gap-6">
             {Array.from({ length: 12 }).map((_, index) => (
               <div
                 key={index}
-                className="bg-gray-50 border border-gray-100 rounded-xl p-6 flex flex-col items-center justify-center animate-pulse h-36"
+                className="bg-gray-50 border border-gray-100 rounded-xl p-4 sm:p-6 flex flex-col items-center justify-center animate-pulse h-28 sm:h-32 md:h-36"
               >
-                <div className="w-12 h-12 bg-gray-200 rounded-full mb-3" />
-                <div className="w-20 h-4 bg-gray-200 rounded" />
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gray-200 rounded-full mb-3" />
+                <div className="w-16 sm:w-20 h-3.5 sm:h-4 bg-gray-200 rounded" />
               </div>
             ))}
           </div>
@@ -66,30 +66,30 @@ export const Skills: React.FC = () => {
           </div>
         )}
 
-        {/* Skills Display in Grid Boxes */}
+        {/* Skills Display in Responsive Grid / Wrapped Badges */}
         {!loading && !error && (
-          <div className="space-y-12">
+          <div className="space-y-8 sm:space-y-10 md:space-y-12">
             {skillsData.map((catGroup) => (
-              <div key={catGroup.category} className="space-y-6 w-full">
-                <h3 className="w-full text-lg sm:text-xl justify-center font-bold text-dark flex items-center gap-2.5 pb-2 border-b border-gray-100">
+              <div key={catGroup.category} className="space-y-4 sm:space-y-6 w-full">
+                <h3 className="w-full text-base sm:text-lg md:text-xl font-bold text-dark flex items-center justify-center text-center gap-2.5 pb-2 border-b border-gray-100">
                   {catGroup.category}
                 </h3>
 
-                <div className="flex items-center justify-center gap-5">
+                <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3.5 md:gap-5">
                   {catGroup.items.map((skill) => (
                     <div
                       key={skill.id}
-                      className=" bg-white border border-gray-200/90 hover:border-primary rounded-xl py-1 px-2  sm:py-2 sm:px-4 flex  items-center justify-center text-center shadow-xs hover:shadow-lg hover:-translate-y-1.5 transition-all duration-300 gap-4 "
+                      className="group bg-white border border-gray-200/90 hover:border-primary rounded-xl py-1.5 px-3 sm:py-2 sm:px-4 md:py-2.5 md:px-5 flex items-center justify-center text-center shadow-xs hover:shadow-lg hover:-translate-y-1 transition-all duration-300 gap-2.5 sm:gap-3 md:gap-4 cursor-default"
                     >
-                      <div className="">
+                      <div className="shrink-0 flex items-center justify-center">
                         <img
                           src={skill.image}
                           alt={skill.name}
-                          className="w-8 h-8 object-contain transition-transform duration-300 group-hover:scale-110"
+                          className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 object-contain transition-transform duration-300 group-hover:scale-110"
                           loading="lazy"
                         />
                       </div>
-                      <div className="font-semibold text-sm sm:text-base text-dark group-hover:text-primary transition-colors">
+                      <div className="font-semibold text-xs sm:text-sm md:text-base text-dark group-hover:text-primary transition-colors whitespace-nowrap">
                         {skill.name}
                       </div>
                     </div>

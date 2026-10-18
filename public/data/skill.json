@@ -15,7 +15,6 @@
       { "id": 6, "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", "name": "React" },
       { "id": 7, "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg", "name": "Next.js" },
       { "id": 8, "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg", "name": "Node.js" },
-      { "id": 9, "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg", "name": "Laravel" },
       { "id": 10, "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg", "name": "Tailwind CSS" },
       { "id": 11, "image": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg", "name": "Bootstrap" }
     ]

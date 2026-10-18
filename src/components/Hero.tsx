@@ -245,7 +245,7 @@ export const Hero = () => {
             {/* Actions */}
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 pt-8 sm:pt-10">
               <a
-                href="#contact"
+                href="https://docs.google.com/document/d/1C3z7m0Y9EBgGvcIl1W5vcMdXs-nfDy-Cju7CGmotI08/export?format=pdf"
                 className="inline-block border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-3 rounded-sm font-semibold text-base transition-all duration-300 shadow-sm"
               >
                 Download CV
