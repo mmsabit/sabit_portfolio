@@ -31,16 +31,16 @@
   },
   {
     "id": 3,
-    "title": "DevStack",
-    "description": "BazarDor is a platform where you can track the prices of your daily-use and grocery products.",
+    "title": "Aura Sky",
+    "description": "Aura Sky is a comprehensive, elegant weather dashboard designed to provide users with accurate meteorological insights in real time.",
     "technology": [
       "React.js",
       "TypeScript",
       "Tailwind CSS",
       "Vite"
     ],
-    "link":"https://devstack-gamma.vercel.app/",
-    "image":"https://i.ibb.co.com/nMs8rjg4/Dev-Stack-10-16-2026-12-20-PM.png",
-    "git_repo":"https://github.com/mmsabit/DevStack-A05.git"
+    "link":"https://aura-sky-six.vercel.app/",
+    "image":"https://i.ibb.co.com/gMQ3w280/Aura-Sky-Atmospheric-Intelligence-10-27-2026-10-01-AM.png",
+    "git_repo":"https://github.com/mmsabit/aura_sky.git"
   }
 ]
