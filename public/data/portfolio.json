@@ -42,5 +42,20 @@
     "link":"https://aura-sky-six.vercel.app/",
     "image":"https://i.ibb.co.com/gMQ3w280/Aura-Sky-Atmospheric-Intelligence-10-27-2026-10-01-AM.png",
     "git_repo":"https://github.com/mmsabit/aura_sky.git"
+  },
+  {
+    "id": 4,
+    "title": "CommUnity",
+    "description": "CommUnity is a community event platform for discovering and organizing local civic and volunteer activities.",
+    "technology": [
+      "Next.js",
+      "MongoDB",
+      "Better Auth",
+      "TypeScript",
+      "Tailwind CSS"
+    ],
+    "link":"https://community-red-seven.vercel.app/",
+    "image":"https://i.ibb.co.com/XZxnjLwR/Comm-Unity.png",
+    "git_repo":"https://github.com/mmsabit/community.git"
   }
 ]
